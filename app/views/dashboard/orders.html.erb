@@ -11,21 +11,23 @@
                         <div class="content table-responsive table-full-width">
                         	<table class="table table-hover table-striped">
                         		<thead>
-                
+
                         			<th>Date</th>
                         			<th>State</th>
                         			<th>Description</th>
                         			<th>Shipping Address</th>
                         			<th>Phone</th>
+															<th>Qty</th>
                         		</thead>
                         		<tbody>
                         			<% @orders.each do |f| %>
                         				<tr>
-                        					<td><%= f.created_at %></td>
+                        					<td><%= f.created_at.strftime("%B %d, %Y, %T") %></td>
                         					<td><%= f.state %></td>
                         					<td><%= f.description %></td>
                         					<td><%= f.shipping_address %></td>
                         					<td><%= f.phone %></td>
+																	<td><%=f.quantity%>
                         				</tr>
                         			<% end %>
                         		</tbody>
@@ -41,49 +43,3 @@
 
 
 <tbody>
-                                                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

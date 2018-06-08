@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
 		@order = Order.new(order_params)
 		@order.user_id = @user.id
 		@order.product_id = @product.id
+		@order.shop_id = @shop.id
 		if @order.save
 			redirect_to thankyou_path
 			flash[:notice] = "Your order has been successfully recieved. Please wait till we respond"
@@ -34,7 +35,7 @@ class OrdersController < ApplicationController
 	private
 
 	def order_params
-		params.require(:order).permit(:state, :description, :user_id, :product_id, :quantity )
+		params.require(:order).permit(:state, :description, :user_id, :product_id, :quantity, :shipping_address, :phone )
 	end
 
 	def validate_before_order

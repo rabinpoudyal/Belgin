@@ -40,7 +40,7 @@
 									<% @products.each do |p| %>
 									  <tr>
 										    <td><%= p.name %></td>
-											<td><%= p.description %></td>
+											<td><%= sanitize p.description %></td>
 											<td><%= p.price %></td>
 											<td><%= "Delete" %>  </td>
 									  </tr>

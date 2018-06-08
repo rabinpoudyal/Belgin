@@ -113,13 +113,13 @@
                             <div class="content">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <span class="fa fa-sticky-note-o"></span><a href=""> 5 Posts</a>
+                                        <span class="fa fa-sticky-note-o"></span><a href=""></a>
                                     </div>
                                     <div class="col-md-4">
-                                        <span class="fa fa-shopping-basket"></span> <a href="#">0 Products</a>
+                                        <span class="fa fa-shopping-basket"></span> <a href="#"><%= @shop.products.count.to_s + " products"%></a>
                                     </div>
                                     <div class="col-md-4">
-                                        <span class="fa fa-first-order"></span> <a href="#">4 Orders</a>
+                                        <span class="fa fa-first-order"></span> <a href="#"><%= Order.where(:shop_id => @shop.id).count.to_s + " orders"%></a>
                                     </div>
                                 </div>
                                 <div class="footer">
