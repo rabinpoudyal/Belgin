@@ -17,7 +17,9 @@
 
   <body>
   	<%= render 'partials/navbar.html.erb' %>
-    <%= yield %>
+    <div class="" style="margin-top: 90px;">
+      <%= yield %>
+    </div>
 	  <a onclick="topFunction()" id="myBtn" class="btn btn-sm" title="Go to top"><i class="fa fa-2x fa-arrow-up" aria-hidden="true"></i></a>
     <%= render 'partials/footer.html.erb' unless @disable_nav_and_footer %>
   </body>
