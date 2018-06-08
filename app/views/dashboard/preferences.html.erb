@@ -1,0 +1,71 @@
+<div class="wrapper">
+	<%= render 'dashboard_shared/sidenavigation' %>
+	<div class="main-panel">
+		<%= render 'dashboard_shared/navigation_bar' %>
+
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="h3">Preferences</h3>
+
+						<%= current_user.shop.settings.get_all %>
+						
+						<%= form_tag(settings_path) do |f| %>
+						  <div class="form-horizontal">
+
+							<div class="form-group">
+								<label class="col-md-4 control-label">Shop Theme Color</label> 
+								<div class="col-md-6">
+									<%= text_field_tag :theme_color, params[:theme_color], :class => "form-control input-md" %>
+									<%= current_user.shop.settings.theme_color %>
+									<span class="help-block">Hex color code e.g #fff</span>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-4 control-label">Order Button Color</label>
+								<div class="col-md-6">
+									<%= text_field_tag :order_button_color, params[:order_button_color], :class => "form-control input-md" %>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-4 control-label">Footer Background Color</label>
+								<div class="col-md-6">
+									<%= text_field_tag :footer_background_color, params[:footer_background_color], :class => "form-control input-md" %>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-4 control-label">Share Button Shape</label>
+								<div class="col-md-6">
+									<%= text_field_tag :share_button_shape, params[:share_button_shape], :class => "form-control input-md" %>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-4 control-label">Share Button Position</label>
+								<div class="col-md-6">
+									<%= text_field_tag :share_button_position, params[:share_button_position], :class => "form-control input-md" %>
+								</div>
+							</div>
+
+
+							<div class="form-group">
+							  <div class="col-md-4 control-label">
+								<%= submit_tag 'Save Settings', name: nil, :class => "btn btn-primary" %>
+							  </div>
+							</div>
+
+						  </div>
+
+						<% end%>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

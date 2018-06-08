@@ -1,0 +1,110 @@
+
+<div class="container">
+<div class="col-xs-12 col-md-6 col-md-offset-3" style="background-color: whitesmoke;">
+<h2 class="h2 text-center" style="background: #3498db;padding: 30px;color: white;">Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), remote: true) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-horizontal">
+
+  <div class="field form-group">
+    <%#= f.label :email, :class => "control-label col-md-4" %>
+    <div class="col-md-12">
+      <%= f.email_field :email, autofocus: true,required: true, placeholder: "Enter your email"%>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <div class="col-md-12">
+      <%= f.text_field :username, :placeholder => "Pick Username" %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%#= f.label :first_name, :class => "control-label col-md-4" %>
+    <div class="col-md-12">
+      <%= f.text_field :first_name, :placeholder => "First Name" %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%#= f.label :last_name, :class => "control-label col-md-4" %>
+    <div class="col-md-12">
+      <%= f.text_field :last_name, :placeholder => "Last Name" %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <div class="col-md-12">
+      <%= f.text_field :address, :placeholder => "Street Address" %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <div class="col-md-12">
+      <%= f.text_field :city, :placeholder => "City Name" %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <div class="col-md-12">
+      <%= f.text_field :country, :placeholder => "Enter Country" %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%#= f.label :password, :class => "control-label col-md-4" %>
+    <% if @minimum_password_length %>
+    &nbsp; &nbsp; &nbsp;<em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <div class="col-md-12">
+      <%= f.password_field :password, autocomplete: "off",placeholder: "Enter Password",required: true %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%#= f.label :password_confirmation, :class => "control-label col-md-4" %>
+    <div class="col-md-12">
+      <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "Enter Same Password Again", required: true %>
+    </div>
+  </div>
+
+<!--   <div class="field form-group">
+    <%= f.label :"Are you seller/vendor?", :class => "control-label col-md-4" %>
+    <div class="col-md-12">
+    <%= f.label :is_seller, "Yes", :value => true %> 
+    <%= f.radio_button :is_seller, "Yes", :checked => true %>
+    <%= f.label :is_seller, "No", :value => false %>
+    <%= f.radio_button :is_seller, "No" %>
+    </div>
+  </div> -->
+
+  <div class="field form-group">
+    <div class="col-md-1 col-sm-1" style="padding: 0px;">
+      <%= f.check_box :terms_and_conditions %>
+    </div>
+    <div class="col-md-11 col-sm-11" style="padding: 0px;">
+      <p>I accept the <a href="/terms_and_conditions">terms and conditions</a>.</p>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class: "btn btn-success btn-block" %>
+  </div>
+<% end %>
+
+</div>
+
+<%= render "devise/shared/links" %>
+
+</div>
+</div>
+
+<style type="text/css">
+  .form-horizontal input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CCC;
+  }
+</style>

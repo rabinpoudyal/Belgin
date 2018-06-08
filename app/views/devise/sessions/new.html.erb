@@ -1,0 +1,56 @@
+<div class="container">
+<div class="col-xs-12 col-md-6 col-md-offset-3" style="background-color: whitesmoke;">
+
+<h1 class="h2 text-center" style="background: #3498db;padding: 30px;color: white;">Log In</h1>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), remote: true) do |f| %>
+
+<div class="form-horizontal">
+
+  <div class="field form-group">
+    <%#= f.label :email, class: "control-label col-md-2" %>
+    <div class="col-md-12">
+      <%= f.email_field :email, autofocus: true, required: true, placeholder: "Enter your email" %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%#= f.label :password, class: "control-label col-md-2" %>
+    <div class="col-md-12">
+      <%= f.password_field :password, autocomplete: "off", required: true, placeholder: "Enter password" %>
+    </div>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field form-group">
+      <div class="col-md-1" style="display: inline;">
+      <%= f.check_box :remember_me %>
+      </div>
+      <div class="col-md-10" style="padding: 0px;">
+        <b>Remember me</b>
+      </div>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Log In", class: "btn btn-success btn-block", style: "border-radius: 0px;" %>
+  </div>
+
+</div>
+
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+</div>
+
+</div>
+
+<style type="text/css">
+  .form-horizontal input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CCC;
+  }
+</style>
+
+

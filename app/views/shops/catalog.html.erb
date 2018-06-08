@@ -1,0 +1,83 @@
+<div class="container">
+	<div class="col-md-2" id="draw-border">
+		<h1 class="h3"></h1>
+		<input type="" name="" class="form-control btn-circle" placeholder="Search..">
+		<h1 class="h4 text-center">Price range</h1>
+		 <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+		<h1 class="h4 text-center">Filter By Categories</h1>
+		<ul>
+			<% @categories.each do |cat| %>
+				<li>
+					<%= link_to cat.name, root_path %>
+				</li>
+			<% end %>
+		</ul>
+	</div> 
+	<div class="col-md-10">
+		<div class="catlog-title">
+
+		</div>
+		<div class="pinterest-design">
+
+		<div class="col-md-12 col-sm-12">
+
+			<% @products.each do |p| %>
+				<div class="item">
+					<img src= <%= p.img_url %> class="img-responsive cover" />
+					<%= link_to p.name, shop_product_path(current_user.shop, p) %>
+				</div>
+			<% end %>
+
+
+		</div>
+
+		</div>
+
+	</div>
+</div>
+
+
+
+<style type="text/css">
+	#draw-border{
+		border-right: 1px solid #e7e7e7;
+	}
+	.btn-circle{
+		border-radius: 50px;
+	}
+	.catlog-title{
+		margin-bottom: 10px;
+	}
+	.img-responsive{
+		width: 100% !important;
+	}
+	.pinterest-design {
+	/* column width */
+	-moz-column-width: 19em;
+	-webkit-column-width: 19em;
+	
+	/* space between columns */
+	-moz-column-gap: 1em;
+	-webkit-column-gap: 1em;
+	}
+
+	.item {
+		display: inline-block;
+		width: 100%;
+		margin-bottom: 1em;
+		padding: 1em;
+		cursor: -webkit-zoom-in;
+	}
+	.item:hover{
+		background-color: whitesmoke;
+		border-radius: 10px;
+	}
+	img{
+		margin: 0px !important;
+	}
+</style>
+
+
+<script type="text/javascript">
+
+</script>

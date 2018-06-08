@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Create online shop in no time">
+    <title>Sundaymarket</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%#= javascript_pack_tag 'application' %>
+    <%#= stylesheet_pack_tag 'application' %>
+
+  </head>
+
+  <body>
+  	<%= render 'partials/navbar.html.erb' %>
+    <%= yield %>
+	  <a onclick="topFunction()" id="myBtn" class="btn btn-sm" title="Go to top"><i class="fa fa-2x fa-arrow-up" aria-hidden="true"></i></a>
+    <%= render 'partials/footer.html.erb' unless @disable_nav_and_footer %>
+  </body>
+
+</html>
+
+
+<script type="text/javascript">
+     $(function(){
+        var notice = "<%= flash[:notice] if notice.present? %>";
+        //$.notify(notice, "success" );
+        var alert = "<%= flash[:alert] if alert.present? %>";
+        //$.notify(notice, "error");
+        if(notice){
+          $.notify(notice, "success" );
+        }else{
+          $.notify(alert, "error" );
+        }
+     })
+</script>

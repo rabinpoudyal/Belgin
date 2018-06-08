@@ -1,0 +1,7 @@
+var qtErrors = <%= @user.errors.count %>
+
+if(qtErrors < 0){
+	$.notify("Errors combr");
+}else{
+	$.notify("No combros no compromise");
+}

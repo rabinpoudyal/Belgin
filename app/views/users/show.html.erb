@@ -1,0 +1,16 @@
+<h1>Showing user</h1>
+<%= @user.email %>
+
+<p><%= @products.count %>Products</p>
+
+
+<% @products.each do |p| %>
+
+ <div class="well col-md-4 col-xs-12">
+
+	<%= p.name %><br/>
+	<%= p.description %><br/>
+
+ </div>
+
+<% end %>

@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+	<h1 class="h2 text-center">Place the order</h1>
+	<%= form_with model: ([current_user.shop, @product, @order]) do |f| %>
+
+		<div class="form-horizontal">
+
+			<div class="field form-group" >
+				<%= f.label :"State of urgency", :class => "control-label col-md-4" %>
+				<div class="col-md-6">
+					<%= f.radio_button :state, "Normal", :checked => true %>
+					<%= f.label :is_seller, "Normal (Within 2 business days)", :value => true %> 
+				    <%= f.radio_button :state, "Emmergency" %>
+				    <%= f.label :is_seller, "Emmergency (Within 24 hours)", :value => false %>	 
+			    </div>   
+			</div>
+
+			<div class="field form-group">
+				<%= f.label :quantity, :class => "control-label col-md-4" %><br/>
+				<div class="col-md-6">
+					<div class="input-group">
+					<div class="input-group-btn">
+						<div class="btn btn-danger" onclick="decreaseQuantity()"><span class="fa fa-minus"></span></div>
+					</div>
+					<%= f.number_field :quantity, :class => "form-control", :id =>"prod_quantity", :value => "1" %>
+					<div class="input-group-btn">
+						<div class="btn btn-danger" onclick="increaseQuantity()"><span class="fa fa-plus"></span></div>
+					</div>
+				</div>
+				</div>
+			</div>
+
+
+			<div class="field form-group">
+				<%= f.label :shipping_address, :class => "control-label col-md-4"  %>
+				<div class="col-md-6">
+					<%= f.text_field :shipping_address, :class => "form-control" %>
+				</div>
+			</div>
+
+
+			<div class="field form-group">
+				<%= f.label :phone, :class => "control-label col-md-4" %>
+				<div class="col-md-6">
+					<%= f.text_field :phone, :class => "form-control" %>
+				</div>
+			</div>
+
+			<div class="field form-group">
+				<%= f.label :Description, :class => "control-label col-md-4" %>
+				<div class="col-md-6">
+					<%= f.text_area :description, :class => "form-control", :rows => "3" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= f.submit "Place Order", :class => "btn btn-warning col-md-offset-4" %>
+			</div>
+ 
+		</div>
+
+	<% end %>
+  </div>
+ 
+</div>
+</div>
+
+<script type="text/javascript">
+	
+	function increaseQuantity(){
+		var quantity = document.getElementById("prod_quantity")
+		var value = quantity.value++;
+	}
+
+	function decreaseQuantity(){
+		var quantity = document.getElementById("prod_quantity")
+		if(quantity.value > 1){
+			var value = quantity.value--;
+		}
+	}
+</script>

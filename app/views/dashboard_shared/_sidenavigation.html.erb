@@ -1,0 +1,78 @@
+<div class="sidebar" data-color="orange" data-image="/store.png">
+
+    <!--
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+    -->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text">
+                    <%= current_user.shop.name if current_user.shop.present? %>
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class=<%= "active" if current_page?(dashboard_path) %> >
+                    <a href="/dashboard">
+                        <i class="fa fa-home"></i>
+                        <p>Home</p>
+                    </a>
+                </li>
+
+                <% if current_user.shop.present? %>
+
+                <li class=<%= "active" if current_page?(dashboard_products_path) %> >
+                    <a href="/dashboard/products">
+                        <i class="fa fa-cart-arrow-down"></i>
+                        <p>Products</p>
+                    </a>
+                </li>
+
+                <li class=<%= "active" if current_page?(dashboard_categories_path) %> >
+                    <a href="/dashboard/categories" >
+                        <i class="fa fa-home"></i>
+                        <p>Categories</p>
+                    </a>
+                </li>
+
+                <li class=<%= "active" if current_page?(dashboard_orders_path) %> >
+                    <a href="/dashboard/orders">
+                        <i class="fa fa-first-order"></i>
+                        <p>Orders</p>
+                    </a>
+                </li>
+
+                <li class=<%= "active" if current_page?(dashboard_statistics_path) %> >
+                    <a href="/dashboard/statistics">
+                        <i class="fa fa-line-chart"></i>
+                        <p>Statisctics</p>
+                    </a>
+                </li>
+
+                <li class=<%= "active" if current_page?(dashboard_themes_path) %> >
+                    <a href="/dashboard/themes">
+                        <i class="fa fa-heart-o"></i>
+                        <p>Themes</p>
+                    </a>
+                </li>
+
+                <li class=<%= "active" if current_page?(dashboard_deals_path) %> >
+                    <a href="/dashboard/deals">
+                        <i class="fa fa-heart-o"></i>
+                        <p>Deals</p>
+                    </a>
+                </li>
+
+                <li class=<%= "active" if current_page?(dashboard_preferences_path) %> >
+                    <a href="/dashboard/preferences">
+                        <i class="fa fa-gear"></i>
+                        <p>Preferences</p>
+                    </a>
+                </li>
+
+                <% end %>
+
+            </ul>
+    	</div>
+</div>

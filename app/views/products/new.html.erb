@@ -1,0 +1,82 @@
+<div class="wrapper">
+    
+    <%= render 'dashboard_shared/sidenavigation' %>
+
+    <div class="main-panel">
+        <%= render 'dashboard_shared/navigation_bar' %>
+
+        <div class="content">
+        	<div class="container-fluid">
+        		<h1 class="h2">New Product</h1>
+        		<div class="row">
+					<%= form_for(@product, :html => { :multipart => true }, url: shop_products_path(current_user.shop, method: :post)) do |f| %>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							<%= f.label :name %>
+							<%= f.text_field :name, class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<%= f.label :description %>
+						<%= f.hidden_field :description, id: "product-description", class: "form-control" %>
+						<trix-editor input="product-description"></trix-editor>
+					</div>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							<%= f.label :price %>
+							<%= f.number_field :price, class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							<%= f.label :img_url %>
+							<%= f.text_field :img_url, class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							<%= f.label :inventory %>
+							<%= f.text_field :inventory, class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<%= f.label :"Make it featured? " %>
+								<%= f.label :is_featured, "Yes", :value => "Yes"  %>
+							    <%= f.radio_button :is_featured, true%>
+							    <%= f.label :is_featured, "No", :value => "No" %>
+							    <%= f.radio_button :is_featured, false, :checked => true %>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							<%= f.label :category %>
+							<%= f.select :category_ids, Category.all.pluck(:name,:id), {}, {multiple: true, class: "selectize"} %>
+						</div>
+					</div>
+
+					<%= f.submit "Add Product", class: "btn btn-primary btn-circle" %>
+
+					<% end %>
+        			
+        		</div>
+        	</div>
+        </div>
+
+    </div>
+</div>

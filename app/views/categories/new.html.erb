@@ -1,0 +1,46 @@
+<div class="wrapper">
+    
+    <%= render 'dashboard_shared/sidenavigation' %>
+
+    <div class="main-panel">
+        <%= render 'dashboard_shared/navigation_bar' %>
+
+        <div class="content">
+        	<div class="container-fluid">
+        		<h1 class="h2">New Category</h1>
+        		<div class="row">
+					<%= form_for @category, url: shop_categories_url(current_user.shop, @category) do |c| %>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							<%= c.label :name %>
+							<%= c.text_field :name, class: "form-control"  %>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							<%= c.label :description %>
+							<%= c.text_area :description, class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							<%= c.label :img_url %>
+							<%= c.text_field :img_url, class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<%= c.submit "Add Category", class: "btn btn-primary" %>
+					</div>
+
+					<% end %>
+
+        		</div>
+        	</div>
+        </div>
+
+    </div>
+</div>

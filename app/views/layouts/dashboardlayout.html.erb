@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="application-name" content="EbloodNepal">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="Find blood doners in Nepal online | Register as a blood doner">
+    <title>Sundaymarket</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'dashboard' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  
+  <body>
+  
+  	<%= yield %>
+    
+  </body>
+
+</html>
+
+<script type="text/javascript">
+     $(function(){
+        var notice = "<%= flash[:notice] if notice.present? %>";
+        //$.notify(notice, "success" );
+        var alert = "<%= flash[:alert] if alert.present? %>";
+        //$.notify(notice, "error");
+        if(notice){
+          $.notify(notice, "success" );
+        }else{
+          $.notify(alert, "error" );
+        }
+     })
+</script>

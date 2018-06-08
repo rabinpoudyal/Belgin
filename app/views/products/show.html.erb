@@ -1,0 +1,87 @@
+<div class="container">
+<div class="row overlay">
+	<div class="col-md-6 col-sm-12 overlay">
+		<img class="js-amplify" src=<%= @product.img_url %> /><br/>
+	</div>
+	<div class="col-md-6 col-sm-12">
+		<h1 class="h2 text-center name"><b><%= @product.name.upcase %></b></h1>
+		<h1 class="h2">Price: <small>रु</small> <%= @product.price %></h1>
+		<p class="description "><div class="well"><%= sanitize @product.description %></div></p>	
+		<p>Sold By: <%= link_to @seller.name, shop_path(@seller) %></p>
+		<p> Added: <%= time_ago_in_words(@product.created_at) %> ago</p>
+		<p>Quantity: </p>
+		<div class="input-group">	
+			<div class="input-group-btn">
+				<div class="btn btn-danger" onclick="increaseQuantity()"><span class="fa fa-plus"></span></div>
+			</div>
+				<input type="number" name="" value="1" class="form-control col-md-1 col-xs-12" id="prod_quantity" />
+			<div class="input-group-btn">
+				<div class="btn btn-danger" onclick="decreaseQuantity()"><span class="fa fa-minus"></span></div>
+			</div>
+		</div><br/>
+		<p>Categories: <% @product.categories.each do |p| %><%= link_to p.name, root_path %>  <% end %></p>
+		<p>I have a coupoun code</p><input type="text" name="coupoun" class="form-control" /><br/>
+		<%= link_to "Order now", new_shop_product_order_path(current_user.shop,@product), :class => "btn btn-danger btn-lg", :id => "order-btn" %>
+		<h1 class="h2">Views: <%= @product.impressionist_count %></h1>
+	</div>	
+</div>
+
+
+<div class="row">
+	<h1 class="h3 text-center">Other Items <%#= link_to @shop.name, root_path %> </h1>
+	<% @products.each do |product| %>
+	<div class="col-md-4 col-sm-12 padding-0 image tilt" id="img-grid">
+
+		<img src=<%= product.img_url %> class="img-responsive myimage" />
+		<h1 class="h4 text-center"><b><%= product.name.upcase %></b></h1>
+	</div>
+	<% end %>
+</div>
+
+
+<div class="row">
+	<h1 class="h3">People who bought <%= @product.name %> also bought :</h1>
+</div>
+
+
+</div>
+
+<style type="text/css">
+	img{
+		width: 100%;
+	}
+	.name{
+		border-bottom: 2px solid #E7E7E7;
+	}
+	.overlay{
+		margin-bottom: 2em;
+		padding-top: 30px;
+	}
+	.padding-0{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	#img-grid{
+		margin-top: 2em;
+	}
+	.well{
+		border-radius: 0px;
+	}
+	.well{
+		background-color: white;
+	}
+	.name, p, h1,h2,h3,h4,h5,h6 {
+		color: #868080;
+	}
+	#order-btn{
+		border-radius: 50px;
+	}
+	.myimage{
+		object-fit: contain;
+		height: 400px;
+	}
+	.img-responsive{
+		width: 100%;
+	}
+
+</style>

@@ -1,0 +1,79 @@
+<div class="wrapper" data-turbolinks="false">
+	<%= render 'dashboard_shared/sidenavigation' %>
+	<div class="main-panel">
+		<%= render 'dashboard_shared/navigation_bar' %>
+
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12" >
+						<div class="">
+						<h4>Products<%= link_to "New Product",new_shop_product_path(current_user.shop, @product), class: "pull-right btn btn-primary" %></h4>
+						</div>
+
+						<% @products.each do |p| %>
+							<div class="col-md-4">
+								<div class="card">
+									<img src=<%= p.img_url %> class="img-responsive" />
+									<h3 class="h3 text-center"><%= p.name %></h3>
+									<div class="footer">
+										<hr/>
+									<%#= link_to "More", p, class: "btn btn-success" %>
+									<%= link_to "Edit", edit_shop_product_path(current_user.shop, p), class: "btn btn-primary" %>
+									<%= link_to "View", shop_product_path(@shop,p), class: "btn btn-success" %>
+									<%= link_to "Delete", shop_product_path(current_user.shop, p),data: {:confirm => 'Are you serious? You will not be able to undo'}, method: :delete, class: "btn btn-danger" %>
+									<hr/>
+									</div>
+								</div>
+							</div>
+						<% end %>
+
+						<div class="content table-responsive table-full-width">
+							<table class="table table-hover table-striped">
+								<thead>
+									<th>Name</th>
+									<th>Description</th>
+									<th>Price</th>
+									<th>Actions</th>
+								</thead>
+								<tbody>
+									<% @products.each do |p| %>
+									  <tr>
+										    <td><%= p.name %></td>
+											<td><%= p.description %></td>
+											<td><%= p.price %></td>
+											<td><%= "Delete" %>  </td>
+									  </tr>
+									<% end %>
+							 </tbody>
+						</table>
+					</div>
+
+
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<style type="text/css">
+	.img-responsive{
+		width: 100%;
+		height: 300px;
+		background-size: cover;
+		background-position: center;
+		object-fit: cover;
+	}
+	.card .btn{
+		border-radius: 50px;
+	}
+	.footer .btn{
+		margin-left: 10px;
+	}
+</style>

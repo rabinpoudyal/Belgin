@@ -1,0 +1,59 @@
+	<div class="form-horizontal">
+	  <div class="field form-group">
+		<%= f.label :name, :class => "control-label col-md-4" %>
+		<div class="col-md-6">
+			<%= f.text_field :name, class: "form-control", placeholder: "E.g Blue Jeans" %>
+			<div class="help-block">(Name of your product)</div>
+		</div>
+	  </div>
+
+	  <div class="field form-group">
+		<%= f.label :description, :class => "control-label col-md-4" %>
+		<div class="col-md-6">
+			<%= f.hidden_field :description, id: "product-description", :class => "form-control", :rows => "5" %>
+			<trix-editor input="product-description"></trix-editor>
+			<div class="help-block">(Description of product)</div>
+		</div>
+	  </div>
+
+	  <div class="field form-group">
+		<%= f.label :price, :class => "control-label col-md-4" %>
+		<div class="col-md-6">
+			<%= f.number_field :price, class: "form-control" , placeholder: "E.g 1100" %>
+			<div class="help-block">(Price of product)</div>
+		</div>
+	  </div>
+
+	  <div class="field form-group">
+		<%= f.label :"Quantity In Stock", :class => "control-label col-md-4" %>
+		<div class="col-md-6">
+			<%= f.number_field :inventory, class: "form-control", :placeholder => "50" %>
+			<div class="help-block">(Quantity of products you have)</div>
+		</div>
+	  </div>
+
+	  <div class="field form-group">
+		<%= f.label :"Image Url", :class => "control-label col-md-4" %>
+		<div class="col-md-6">
+			<%= f.text_field :img_url, class: "form-control", :placeholder => "Url of product Image" %>
+			<div class="help-block">(E.g https://facebook.com/product.jpg)</div>
+		</div>
+	  </div>
+
+	  <div class="field form-group">
+	  	<%= f.label :"Categories", :class => "control-label col-md-4" %>
+	  	<div class="col-md-6">
+	  		<%= f.select :category_ids, Category.all.pluck(:name,:id), {}, {multiple: true, class: "selectize"} %>
+	  	</div>
+	  </div>
+
+
+	  <%= f.submit "Add Product", class: "btn btn-danger col-md-offset-4 btn-circle" %>
+
+	 </div>
+
+	 <style type="text/css">
+	 	.btn-circle{
+	 		border-radius: 50px;
+	 	}
+	 </style>

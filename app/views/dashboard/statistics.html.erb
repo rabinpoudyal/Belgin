@@ -1,0 +1,19 @@
+<div class="wrapper">
+	<%= render 'dashboard_shared/sidenavigation' %>
+	<div class="main-panel">
+		<%= render 'dashboard_shared/navigation_bar' %>
+
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="h3">Statistics</h3>
+						<%= line_chart Order.group_by_day(:created_at).count %>
+						<h1 class="h5 text-center">Orders</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

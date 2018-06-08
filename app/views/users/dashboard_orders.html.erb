@@ -1,0 +1,27 @@
+<div class="container-fluid">
+	<%= render 'dashboard_shared/sidenavigation' %>
+	<h1 class="h4">Listing all of your orders</h1>
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<td>Product_id</td>
+					<td>Product Name</td>
+					<td>Status</td>
+					<td>User_id</td>
+					<td>Ordered at</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% @orders.each do |o| %>
+				<tr>
+					<td><%= o.product_id %></td>
+					<td><%= o.status %></td>
+					<td><%= o.created_at %></td>
+					<td><%= o.user_id %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

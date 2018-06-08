@@ -1,0 +1,95 @@
+<div class="container">
+	<div class="row">
+		<h1 class="h2 text-center col-md-8 col-md-offset-2" style="background-color: #22A7F0;color: white;padding: 30px;">Create a new shop</h1>
+		<%= form_for(@shop) do |f| %>
+
+		<div class="form-horizontal col-md-8 col-md-offset-2" style="background-color: whitesmoke; padding: 30px;">
+
+		
+
+		<div class="field form-group">
+			<%= f.label :name, :class => " control-label col-md-2" %>
+			<div class="col-md-10">
+				<%= f.text_field :name, :placeholder => "Shop Name" %>
+				<div class="help-block">(Name of your shop E.g Rabin's Clothing Store)</div>
+			</div>
+		</div>
+
+		<div class="field form-group">
+			<%= f.label :subdomain, :class => "control-label col-md-2" %>
+			<div class="col-md-10">
+				<%= f.text_field :subdomain, :placeholder => "Choose subdomain for your shop" %>
+				<div class="help-block">(rabinshop.jasmine.com)</div>
+			</div>
+		</div>
+
+		<div class="field form-group">
+			<%= f.label :location, :class => "control-label col-md-2" %>
+			<div class="col-md-10">
+				<%= f.text_field :location, :placeholder => "Where is your shop located?" %>
+				<div class="help-block">(Physical location of shop if present)</div>
+			</div>
+		</div>
+
+		<div class="field form-group">
+			<%= f.label :description, :class => "control-label col-md-2" %>
+			<div class="col-md-10">
+				<%= f.text_area :description,  :rows => "4", :placeholder => "Tell visitors something about your shop" %>
+				<div class="help-block">(Tell about why someone should purchase products from your shop)</div>
+			</div>
+		</div>
+
+		<div class="field form-group">
+			<%= f.label :phone, :class => "control-label col-md-2" %>
+			<div class="col-md-10">
+				<%= f.text_field :phone, :placeholder => "Phone number" %>
+				<div class="help-block">(Phone number your clients can reach you)</div>
+			</div>
+		</div>
+
+		<div class="field form-group">
+			<%= f.label :"Facebook Url", :class => "control-label col-md-2" %>
+			<div class="col-md-10">
+				<%= f.text_field :facebook, :placeholder => "Facebook page Url" %>
+				<div class="help-block">(Facebook page url if present)</div>
+			</div>
+		</div>
+
+		<div class="field form-group">
+			<%= f.label :"Twitter Url", :class => "control-label col-md-2" %>
+			<div class="col-md-10">
+				<%= f.text_field :twitter, :placeholder => "Twitter url" %>
+				<div class="help-block">(Twiiter url if present)</div>
+			</div>
+		</div>
+
+		<div class="field form-group">
+			<%= f.label :"Instagram Url", :class => "control-label col-md-2" %>
+			<div class="col-md-10">
+				<%= f.text_field :instagram, :placeholder => "Instagram url" %>
+				<div class="help-block">(Instagram url if present)</div>
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			<div class="col-md-10 col-md-offset-2">
+				<%= f.submit "Create Shop", :class => "btn btn-primary form-control", :id => "button-shop" %>
+				<div class="help-block">By creating a store here, I agree that I won't be selling illegal stuffs from this website</div>
+			</div>
+		</div>
+
+		<% end %>
+	</div>
+</div>
+
+<style type="text/css">
+	input{
+		width: 100%;
+		padding: 10px;
+	}
+	textarea{
+		width: 100%;
+		padding: 10px;
+	}
+</style>
