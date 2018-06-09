@@ -1,9 +1,4 @@
-<!-- Add the slick-theme.css if you want default styling -->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
-<!-- Add the slick-theme.css if you want default styling -->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
 
-<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 
 
 <div class="jumbotorn" id="background-img">
@@ -76,14 +71,26 @@
   <div class="row">
       <h1 class="h3 text-center" style="padding: 30px 0px;">FEATURED SHOPS</h1>   
       <div class="featured-product-slider">
-        <div>
-          <%= image_tag "/cake.jpg" %>
+        <div style="background: linear-gradient(rgba(20,20,20, .5), rgba(20,20,20, .5)), url('/shop1.jpg'); padding: 200px;color: white;">
+          <h2 class="h2 text-center">Saroj Clothings</h2>
+          <center>
+          <div class="btn btn-danger btn-lg">Visit</div>
+          </center>
+          <%#= image_tag "/shop1.jpg" %>
         </div>
-        <div>
-          <%#= image_tag "/brand.jpg" %>
+        <div style="background: linear-gradient(rgba(20,20,20, .5), rgba(20,20,20, .5)), url('/shop2.jpg'); padding: 200px;color: white;">
+          <h2 class="h2 text-center">Binod Fancy Store</h2>
+          <center>
+          <div class="btn btn-danger btn-lg">Visit</div>
+          </center>
+          <%#= image_tag "/shop2.jpg" %>
         </div>
-        <div>
-          <%= image_tag "/cake.jpg" %>
+        <div style="background: linear-gradient(rgba(20,20,20, .5), rgba(20,20,20, .5)), url('/cake.jpg'); padding: 200px;color: white;">
+          <h2 class="h2 text-center">Rabin's Bakery</h2>
+          <center>
+          <div class="btn btn-danger btn-lg">Visit</div>
+          </center>
+          <%#= image_tag "/cake.jpg" %>
         </div>
       </div>
   </div>
@@ -170,7 +177,7 @@
     padding-bottom: 3em;
   }
   .world{
-    background-image: url(map2.png);
+    background: url(map2.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
