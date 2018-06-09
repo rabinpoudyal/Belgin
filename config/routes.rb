@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   get '/dashboard/themes' => 'dashboard#themes'
   get '/dashboard/deals' => 'dashboard#deals'
   get '/dashboard/categories' => 'dashboard#categories'
+  get '/dashboard/articles' => 'dashboard#articles'
   match 'dashboard/preferences' => 'dashboard#preferences', via: [:get,:patch]
 
   get '/dashboard_orders' => 'users#dashboard_orders'

@@ -1,5 +1,5 @@
 <h1>New Article</h1>
 
-<%= render 'form', article: @article, shop: current_user.shop.id %>
+<%= render 'form', shop: @shop, article: @article %>
 
 <%= link_to 'Back', articles_path %>

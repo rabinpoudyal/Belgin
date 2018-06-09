@@ -19,7 +19,11 @@ class DashboardController < ApplicationController
 	end
 
 	def categories
-		@categories = Category.where(:shop_id => current_user.shop)
+		@categories = Category.where(:shop_id => current_user.shop.id)
+	end
+
+	def articles
+		@articles = @shop.articles.where(:shop_id => @shop.id)
 	end
 
 	def statistics
@@ -52,6 +56,7 @@ class DashboardController < ApplicationController
 
 	def set_shop
 		@shop = current_user.shop
+		@article = Article.new
 	end
 
 end

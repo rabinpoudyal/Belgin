@@ -5,5 +5,6 @@ class Shop < ApplicationRecord
 	
 	has_many :products, dependent: :destroy
 	belongs_to :user
+	has_many :articles, dependent: :destroy
 	
 end
