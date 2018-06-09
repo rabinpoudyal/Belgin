@@ -7,7 +7,7 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
+                <a href=<%= shop_path(@shop) %> class="simple-text">
                     <%= current_user.shop.name if current_user.shop.present? %>
                 </a>
             </div>
